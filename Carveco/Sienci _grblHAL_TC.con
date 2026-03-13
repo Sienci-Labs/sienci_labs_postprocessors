@@ -1,0 +1,87 @@
+;
+; Grbl configuration file - with Arc Support
+;
+; History
+;
+; Who When     What
+; === ======== ========================================
+; LA  02/03/20 Written
+; LA  03/06/21 Added 4 dec places
+; JC  20/02/26 Added tool changing and flood functionality
+;
+DESCRIPTION = "Sienci grblHAL TC (*.gcode)"
+;
+FILE_EXTENSION = "gcode"
+;
+UNITS = MM
+;
+; Carriage return - line feed at end of each line
+;
+END_OF_LINE = "[13][10]"
+;
+; Block numbering
+;
+LINE_NUM_START     = 0
+LINE_NUM_INCREMENT = 10
+LINE_NUM_MAXIMUM   = 999999
+;
+; Set up default formatting for variables
+;
+; Line numbering
+FORMAT = [N|@|N|1.0]
+; Spindle Speed
+FORMAT = [S|@|S|1.0]
+; Feed Rate
+FORMAT = [F|#|F|1.1]
+; Tool moves in x,y and z
+FORMAT = [X|#|X|1.4]
+FORMAT = [Y|#|Y|1.4]
+FORMAT = [Z|#|Z|1.4]
+; Arc Centre Coordinates
+FORMAT = [I|@|I|1.4]
+FORMAT = [J|@|J|1.4]
+; Home tool positions
+FORMAT = [XH|@|X|1.4]
+FORMAT = [YH|@|Y|1.4]
+FORMAT = [ZH|@|Z|1.4]
+;
+; Set up program header
+;
+START = "M5"
+START = "M9"
+START = "T[T] M6;[TOOLDESC]"
+START = "G17"
+START = "G21"
+START = "G90"
+START = "G0[ZH]"
+START = "G0[XH][YH]"
+START = "M8"
+START = "[S]M3"
+;
+; Program moves
+;
+RAPID_RATE_MOVE        = "G0[X][Y][Z]"
+;
+FIRST_FEED_RATE_MOVE   = "G1[X][Y][Z][F]"
+FEED_RATE_MOVE         = "[X][Y][Z]"
+;
+FIRST_CW_ARC_MOVE      = "G2[X][Y][I][J][F]"
+CW_ARC_MOVE            = "G2[X][Y][I][J]"
+;
+FIRST_CCW_ARC_MOVE     = "G3[X][Y][I][J][F]"
+CCW_ARC_MOVE           = "G3[X][Y][I][J]"
+;
+TOOLCHANGE              = "M5"
+TOOLCHANGE              = "M9"
+TOOLCHANGE              = "T[T] M6;[TOOLDESC]"
+;
+NEW_SEGMENT_POST_TOOLCHANGE     = "G0[ZH]"
+NEW_SEGMENT_POST_TOOLCHANGE     = "M8"
+NEW_SEGMENT_POST_TOOLCHANGE     = "[S]M3"
+; End of file
+;
+END = "M5"
+END = "M9"
+END = "G0[ZH]"
+END = "G0[XH][YH]"
+END = "M2"
