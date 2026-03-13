@@ -1,2 +1,2 @@
 # sienci_labs_postprocessors
-Repository for various postprocessors related to Sienci Lab products
+Repository for post processors published by Sienci Labs

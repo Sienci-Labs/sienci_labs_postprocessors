@@ -50,7 +50,10 @@
 +   Sienci Labs 21/06/2023 Changed Y output to wrapped rotary A axis in degrees. M6 tool changing enabled
 + ---
 + Version 8
-+   Sienci Labs 30/01/2026 Updated tool changing gcode
++   Sienci Labs 13/03/2025
++   Forked from grbl.pp
++   Revised tool change command (as supported by grblHAL)
++   Added flood coolant related commands
 + =======================================
 
 
@@ -59,9 +62,7 @@ POST_NAME = "Sienci Labs Vortex TC (grblHAL)(*.gcode)"
 FILE_EXTENSION = "gcode"
 
 UNITS = "MM"
-
 ROTARY_WRAP_Y = "A"
-
 DIRECT_OUTPUT = "VTransfer"
 
 LASER_SUPPORT = "YES"

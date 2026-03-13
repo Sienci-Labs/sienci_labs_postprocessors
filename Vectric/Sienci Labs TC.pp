@@ -47,16 +47,17 @@
 +   Added Dwell record & variable support using G4P[x]
 + ---
 + Version 7
-+   Sienci Labs 09/06/2025 Revised Tool Changing code to include spindle speed changes
++   Sienci Labs 13/03/2025
++   Forked from grbl.pp
++   Added tool change command as supported by grblHAL
++   Added flood coolant related commands
 + =======================================
-
 
 POST_NAME = "Sienci Labs TC (grblHAL)(*.gcode)"
 
 FILE_EXTENSION = "gcode"
 
 UNITS = "MM"
-
 DIRECT_OUTPUT = "VTransfer"
 
 LASER_SUPPORT = "YES"
